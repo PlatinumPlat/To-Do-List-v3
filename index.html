@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en-US">
+
+ <head>
+  <title>To-Do List</title>
+  <link href="styles.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Chivo:ital@0;1&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Ephesis&family=Jost:ital,wght@0,100..900;1,100..900&family=Vibes&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+   <div class="topnav">
+    <div class="topnavtext">
+      <a href="instructions.html">Instructions</a>
+      <a href="toDoList.html">To-Do List</a>
+    </div>
+  </div>
+   <div class="container">
+     <div class="content">
+       <div class="title">
+        <h1>To-Do or Not to Do?</h1>
+        <p>With <strong style="font-size: 23px; color:#2E0014;">Task Tracker</strong>, that is no longer the question...
+        </p>
+      </div>
+        <div class="selections">
+           <input id="nextTask" type="text" size=70 placeholder="Task Name">
+          <br>
+          <textarea id="nextTaskDes" rows="5" cols="70" placeholder="Task description..."></textarea>
+          <br>
+          <input type="date" id="dueDate">
+          <input type="time" id="dueTime">
+          <br>
+          <input type="url" id="assignment" size = 50 placeholder="Enter Assignment Link">
+          <button id="toggleNotes">Show/Hide Notes</button>
+          <textarea id="notes" rows="10" cols="120" placeholder="Type in your ideas here..."></textarea>
+          <br>
+          <button onclick="newElement()" id="addBtn">Add Task</button>
+          <button onclick="clearElements()" id="clearBtn">Clear All</button>
+
+        </div>
+       <ul id="taskCollection">
+        <li>Add your own tasks</li>
+        <li>Click to cross out tasks</li>
+        <li class="checked">Select ...</li>
+        <li>Delete with the x button!</li>
+      </ul>
+     </div>
+   </div>
+
+</body>
+<script src="Scripts/index.js"></script>
+<script src="Scripts/jquery-3.7.1.js"></script>
+
+</html>
