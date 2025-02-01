@@ -1,3 +1,7 @@
+window.addEventListener("load", (event) => {
+    new cursoreffects.bubbleCursor();
+});
+
 var today = new Date();
 
 let taskArray = [
@@ -55,7 +59,7 @@ var edit = document.getElementsByClassName("edit");
 var l;
 for (var l = 0; l < edit.length; l++) {
     edit[l].onclick = function () {
-        var div = this.parentElement; 
+        var div = this.parentElement;
         document.getElementById("nextTask").value = div.firstChild.textContent;
         div.style.display = "none";
     }
@@ -115,17 +119,28 @@ function renderTaskList() {
     taskListElement.innerHTML = '';
 
     taskArray.forEach(function (task) {
-    let li = document.createElement("li");
-    let taskText = document.createTextNode(task.name + "-" + clipDescription(task.description));
-    li.appendChild(taskText);
+        let li = document.createElement("li");
+        
+        let taskDetails = document.createElement("div");
+        taskDetails.classList.add("task-details");
 
-    let dueDateText = document.createElement("span");
-    dueDateText.classList.add("dueDate");
-    dueDateText.textContent = `Due: ${task.dueDate}`;
-    li.appendChild(dueDateText);
+        let taskName = document.createTextNode(task.name + " - ");
+        taskDetails.appendChild(taskName);
+        
+        let taskDescription = document.createTextNode(clipDescription(task.description));
+        taskDetails.appendChild(taskDescription);
 
-    taskListElement.appendChild(li);
-    addTaskControls(li, task);
+        let dueDate = new Date(task.dueDate);
+        let formattedDate = dueDate.toDateString();
+        let formattedTime = task.dueTime;
+
+        let dueDateTime = document.createElement("div");
+        dueDateTime.textContent = `Due: ${formattedDate} at ${formattedTime}`;
+        taskDetails.appendChild(dueDateTime);
+
+        li.appendChild(taskDetails);
+        addTaskControls(li, task);
+        taskListElement.appendChild(li);
     });
 }
 
@@ -142,7 +157,6 @@ function addTaskControls(li, task) {
     editSpan.appendChild(editTxt);
     li.appendChild(editSpan);
 
-
     span.onclick = function () {
         const index = taskArray.indexOf(task);
         if (index !== -1) {
@@ -152,7 +166,10 @@ function addTaskControls(li, task) {
     }
 
     editSpan.onclick = function () {
-        var div = this.parentElement;
+        const index = taskArray.indexOf(task);
+        if (index !== -1) {
+            taskArray.splice(index, index);
+        }
         $("#nextTask").val(task.name);
         $("#nextTaskDes").val(task.description);
         $("#dueDate").val(task.dueDate);
