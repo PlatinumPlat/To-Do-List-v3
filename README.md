@@ -1,8 +1,8 @@
 # 📅 To-Do List
- Courses for you to level up your mental math tricks!
-
+ An interactive website to help you manage your tasks in an organized way!
+ 
 # 🧠 Project Description
- A detailed To-Do List.
+ A detailed To-Do List equipped with a task description, due date, assignment link, notes and much more!
 
 # ⚙ Technologies Used
 1. HTML for the website
