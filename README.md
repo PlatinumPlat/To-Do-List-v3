@@ -11,8 +11,7 @@
 
 # ▶ Try it out!
 Simply visit this website: [https://platinumplat.github.io/Mental-Math-Tricks/index.html](https://platinumplat.github.io/Mental-Math-Tricks/index.html).
-You should see this:
-![image]((https://cloud-ylzwlflhk-hack-club-bot.vercel.app/0image.png))
+You should see this: [https://cloud-ylzwlflhk-hack-club-bot.vercel.app/0image.png](https://cloud-ylzwlflhk-hack-club-bot.vercel.app/0image.png).
 
 # 👩‍🏫 Instructions!
 You can visit the instructions page, but here are the basic steps to using this website:
