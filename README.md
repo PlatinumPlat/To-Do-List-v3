@@ -10,7 +10,7 @@
 3. Javascript for task functionalities
 
 # ▶ Try it out!
-Simply visit this website: [https://platinumplat.github.io/Mental-Math-Tricks/index.html](https://platinumplat.github.io/Mental-Math-Tricks/index.html).
+Simply visit this website: [https://platinumplat.github.io/To-Do-List-v3/index.html](https://platinumplat.github.io/To-Do-List-v3/index.html).
 You should see this: [https://cloud-ylzwlflhk-hack-club-bot.vercel.app/0image.png](https://cloud-ylzwlflhk-hack-club-bot.vercel.app/0image.png).
 
 # 👩‍🏫 Instructions!
