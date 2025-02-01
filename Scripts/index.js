@@ -9,7 +9,7 @@ let taskArray = [
         name: "Follow Instructions",
         description: "Visit instructions page from the navigation bar.",
         dueDate: today,
-        dueTime: "15:00",
+        dueTime: "23:59",
         assignmentLink: "http://homeworklink.com",
         notes: "Read Carefully!"
     },
