@@ -1,8 +1,8 @@
-# 📅 To-Do List
- An interactive website to help you manage your tasks in an organized way!
+# 📅 Task Tracker: An Advanced To-Do List
+ An interactive website to help you manage your tasks in an organized and descriptive way!
  
 # 🧠 Project Description
- A detailed To-Do List equipped with a task description, due date, assignment link, notes and much more!
+ A detailed To-Do List equipped with a task description, due date, assignment link, notes, pop-up task preview, and much more!
 
 # ⚙ Technologies Used
 1. HTML for the website
