@@ -74,6 +74,9 @@ tasks.addEventListener('click', function (ev) {
 }, false);
 
 
+document.getElementById("toggleNotes").addEventListener('click', function () {
+    $("#notes").toggleClass("show");
+});
 
 
 function newElement() {
@@ -103,6 +106,7 @@ function newElement() {
     }
 
     taskArray.push(task);
+    saveTasksToLocalStorage();
     renderTaskList();
 
     $("#nextTask").val("");
@@ -157,26 +161,42 @@ function addTaskControls(li, task) {
     editSpan.appendChild(editTxt);
     li.appendChild(editSpan);
 
+    var expandSpan = document.createElement("span")
+    var expandTxt = document.createTextNode("Expand");
+    expandSpan.className = "expand";
+    expandSpan.appendChild(expandTxt);
+    li.appendChild(expandSpan);
+
+
     span.onclick = function () {
         const index = taskArray.indexOf(task);
         if (index !== -1) {
             taskArray.splice(index, 1);
+            saveTasksToLocalStorage();
         }
         renderTaskList();
     }
 
     editSpan.onclick = function () {
-        const index = taskArray.indexOf(task);
-        if (index !== -1) {
-            taskArray.splice(index, index);
-        }
         $("#nextTask").val(task.name);
         $("#nextTaskDes").val(task.description);
         $("#dueDate").val(task.dueDate);
         $("#dueTime").val(task.dueTime);
         $("#assignment").val(task.assignmentLink);
         $("#notes").val(task.notes);
+
+        const index = taskArray.indexOf(task);
+        if (index !== -1) {
+            taskArray.splice(index, index);
+            saveTasksToLocalStorage();
+        }
+
+        renderTaskList();
     }
+
+    expandSpan.onclick = function () {
+        showTaskDetails(task);
+    };
 
 }
 
@@ -196,6 +216,54 @@ function clearElements() {
     $("#notes").val("");
 }
 
+function showTaskDetails(task) {
+    var modal = $("#taskModal");
+    var modalTaskName = $("#modalTaskName");
+    var modalTaskDescription = $("#modalTaskDescription");
+    var modalDueDate = $("#modalDueDate");
+    var modalDueTime = $("#modalDueTime");
+    var modalAssignmentLink = $("#modalAssignmentLink");
+    var modalNotes = $("#modalNotes");
+
+    let dueDate = new Date(task.dueDate);
+    let formattedDate = dueDate.toDateString();
+
+    modalTaskName.text(task.name);
+    modalTaskDescription.text(task.description);
+    modalDueDate.text(formattedDate);
+    modalDueTime.text(task.dueTime);
+    modalAssignmentLink.href = task.assignmentLink;
+    modalAssignmentLink.text(task.assignmentLink);
+    modalNotes.text(task.notes);
+
+    $("#taskModal").show();
+
+    var closeModal = document.getElementsByClassName("close-modal")[0];
+    closeModal.onclick = function () {
+        $("#taskModal").hide();
+    };
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            $("#taskModal").hide();
+        }
+    };
+    
+}
+
+
+function saveTasksToLocalStorage() {
+    localStorage.setItem("tasks", JSON.stringify(taskArray));
+}
+
+function loadTasksFromLocalStorage() {
+    const tasks = localStorage.getItem("tasks");
+    if (tasks) {
+        taskArray = JSON.parse(tasks);
+    }
+}
+
 window.onload = function () {
+    loadTasksFromLocalStorage();
     renderTaskList();
 };

@@ -35,11 +35,10 @@
         <br>
         <input type="url" id="assignment" size=50 placeholder="Enter Assignment Link">
         <button id="toggleNotes">Show/Hide Notes</button>
-        <textarea id="notes" rows="10" cols="120" placeholder="Type in your ideas here..."></textarea>
+        <textarea id="notes" rows="10" cols="120" placeholder="Type in your ideas here..." ></textarea>
         <br>
         <button onclick="newElement()" id="addBtn">Add Task</button>
         <button onclick="clearElements()" id="clearBtn">Clear All</button>
-
       </div>
       <ul id="taskCollection">
         <li>Add your own tasks</li>
@@ -47,7 +46,20 @@
         <li class="checked">Select ...</li>
         <li>Delete with the x button!</li>
       </ul>
+      <div id="taskModal" class="modal">
+        <div class="modal-content">
+          <span class="close-modal">&times;</span>
+          <h2>Task Details</h2>
+          <p><strong>Title:</strong> <span id="modalTaskName"></span></p>
+          <p><strong>Description:</strong> <span id="modalTaskDescription"></span></p>
+          <p><strong>Due Date:</strong> <span id="modalDueDate"></span></p>
+          <p><strong>Due Time:</strong> <span id="modalDueTime"></span></p>
+          <p><strong>Assignment Link:</strong> <a id="modalAssignmentLink" target="_blank"></a></p>
+          <p><strong>Notes:</strong> <span id="modalNotes"></span></p>
+        </div>
+      </div>
     </div>
+
   </div>
 
 </body>
